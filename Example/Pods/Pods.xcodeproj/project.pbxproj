@@ -28,6 +28,8 @@
 		971E3B7AD0A4479041714EEE70A051AC /* M13CheckboxExpandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3373EA97B9160199C516314A2410DE2F /* M13CheckboxExpandManager.swift */; };
 		981263265564D915450FF9F089CACBE6 /* M13Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768863AF9783FBE5EAFD374E64DA5B1B /* M13Checkbox.swift */; };
 		9A0FD81957DFDFEEF24052A8CA2B7CF9 /* M13CheckboxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E1BC804CEFED115229D0EC1A923188 /* M13CheckboxManager.swift */; };
+		9EA344131F53774A0080E337 /* ColorPickerAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA344121F53774A0080E337 /* ColorPickerAddCell.swift */; };
+		9EA344151F537A380080E337 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA344141F537A380080E337 /* AddView.swift */; };
 		A42E33B6963EF47EACAC543BB90DB036 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9143F8FBE65F4EF980FBB00DFD086EC8 /* UIColor+Extension.swift */; };
 		A5602FBD8E5798039BD46E110D823050 /* Pods-IGColorPicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B60D81D802D6894C43B23A2F0614C8DD /* Pods-IGColorPicker_Example-dummy.m */; };
 		A65A8C1627A4757F44B8EB49B7A1E12A /* Pods-IGColorPicker_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16A607A284BD3D79554A4955BF793C37 /* Pods-IGColorPicker_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,13 +72,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D765E35E2CAC5ACF02443ECDC3E0688 /* Pods_IGColorPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_IGColorPicker_Tests.framework; path = "Pods-IGColorPicker_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D765E35E2CAC5ACF02443ECDC3E0688 /* Pods_IGColorPicker_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGColorPicker_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAEBB2F8B6E69A5A7A25C4412C8FCCE /* ColorPickerViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorPickerViewDelegate.swift; sourceTree = "<group>"; };
 		16A607A284BD3D79554A4955BF793C37 /* Pods-IGColorPicker_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-IGColorPicker_Tests-umbrella.h"; sourceTree = "<group>"; };
-		17D2FC57573E11487E5E19BD3084448D /* M13Checkbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = M13Checkbox.modulemap; sourceTree = "<group>"; };
-		1C2876F7D7A08A0F931EFB61222C80AD /* Pods-IGColorPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-IGColorPicker_Example.modulemap"; sourceTree = "<group>"; };
+		17D2FC57573E11487E5E19BD3084448D /* M13Checkbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = M13Checkbox.modulemap; sourceTree = "<group>"; };
+		1C2876F7D7A08A0F931EFB61222C80AD /* Pods-IGColorPicker_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-IGColorPicker_Example.modulemap"; sourceTree = "<group>"; };
 		232AB35C3BE34383398DC2DAF4C9882A /* ColorPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
-		232C62F5C0DCB4797378909DF1486B41 /* IGColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = IGColorPicker.modulemap; sourceTree = "<group>"; };
+		232C62F5C0DCB4797378909DF1486B41 /* IGColorPicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IGColorPicker.modulemap; sourceTree = "<group>"; };
 		2673E65E76325896D832BA0178918C8F /* Pods-IGColorPicker_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IGColorPicker_Tests-resources.sh"; sourceTree = "<group>"; };
 		272A9028B0ED9D7CA339DA761B77C286 /* M13Checkbox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = M13Checkbox.xcconfig; sourceTree = "<group>"; };
 		2AFA9AB32F5278047F762C4BE823F79F /* IGColorPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGColorPicker-prefix.pch"; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		3A2B121F1E1D3D3E6823A658E51C6AE7 /* Pods-IGColorPicker_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IGColorPicker_Example-resources.sh"; sourceTree = "<group>"; };
 		3E18D786CB74AC81C0B4EBF335119E37 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B78AA2BED880E5AF20FFAF9E55822C1 /* Pods-IGColorPicker_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-IGColorPicker_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4D6B9A1A1F80CE105B5504571D399460 /* Pods_IGColorPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_IGColorPicker_Example.framework; path = "Pods-IGColorPicker_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6B9A1A1F80CE105B5504571D399460 /* Pods_IGColorPicker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGColorPicker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5625D37CAADD3519CB191473B3388734 /* M13CheckboxGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxGestureRecognizer.swift; path = Sources/M13CheckboxGestureRecognizer.swift; sourceTree = "<group>"; };
 		5BFC33F0B8241656B39F65D720CD223C /* Pods-IGColorPicker_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-IGColorPicker_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5C230C0A9E2123756597A3C6E230632B /* IGColorPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IGColorPicker.xcconfig; sourceTree = "<group>"; };
@@ -99,12 +101,14 @@
 		80FA316031A2868448F1BE13E61B3BBB /* ColorPickerViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorPickerViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
 		843A3CC8CD424B12CE1FAE7CC21219E6 /* M13CheckboxSpiralPathPresets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxSpiralPathPresets.swift; path = Sources/Presets/M13CheckboxSpiralPathPresets.swift; sourceTree = "<group>"; };
 		84706A6D0E7D5BEF9A6A28E21290C18E /* M13CheckboxFillManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxFillManager.swift; path = Sources/Managers/M13CheckboxFillManager.swift; sourceTree = "<group>"; };
-		898A265C753D7A9A7694AB40D69A2E54 /* IGColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IGColorPicker.framework; path = IGColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		898A265C753D7A9A7694AB40D69A2E54 /* IGColorPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGColorPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E1BC804CEFED115229D0EC1A923188 /* M13CheckboxManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxManager.swift; path = Sources/M13CheckboxManager.swift; sourceTree = "<group>"; };
 		8BD835953F4E0024E44D10ABD497EF94 /* ColorPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorPickerCell.swift; sourceTree = "<group>"; };
 		9030DA62D3A33D066078EBBA054977B7 /* IGColorPicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGColorPicker-umbrella.h"; sourceTree = "<group>"; };
 		9143F8FBE65F4EF980FBB00DFD086EC8 /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EA344121F53774A0080E337 /* ColorPickerAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerAddCell.swift; sourceTree = "<group>"; };
+		9EA344141F537A380080E337 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		A8331364EA28D014644E6D0C98F48218 /* M13Checkbox+IB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "M13Checkbox+IB.swift"; path = "Sources/M13Checkbox+IB.swift"; sourceTree = "<group>"; };
 		AC0F2CC455F0BAB8A2D492EFCCBA4B12 /* M13CheckboxStrokeManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxStrokeManager.swift; path = Sources/Managers/M13CheckboxStrokeManager.swift; sourceTree = "<group>"; };
 		AC7F29BE03E05C056892EB24E35D9C3E /* M13CheckboxDotManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = M13CheckboxDotManager.swift; path = Sources/Managers/M13CheckboxDotManager.swift; sourceTree = "<group>"; };
@@ -119,8 +123,8 @@
 		C1CF41BBB872BC58966C827E0CA0B9D6 /* Pods-IGColorPicker_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IGColorPicker_Example-frameworks.sh"; sourceTree = "<group>"; };
 		CCE3BB68D30EE69C7FECD7121D07864C /* Pods-IGColorPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IGColorPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CD91795DE0ABE8FF8D1E0256602A9448 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D17BF0D20DCB743823636BE240265381 /* Pods-IGColorPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-IGColorPicker_Tests.modulemap"; sourceTree = "<group>"; };
-		D2B478D62D1E59085AAB7AF922BFEA38 /* M13Checkbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = M13Checkbox.framework; path = M13Checkbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D17BF0D20DCB743823636BE240265381 /* Pods-IGColorPicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-IGColorPicker_Tests.modulemap"; sourceTree = "<group>"; };
+		D2B478D62D1E59085AAB7AF922BFEA38 /* M13Checkbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = M13Checkbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D53E2B8B6650B19BFEA8CA4EEC4DCA58 /* Pods-IGColorPicker_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-IGColorPicker_Tests-dummy.m"; sourceTree = "<group>"; };
 		DA79D27069F17DFA91736C94569F1340 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		DF84600FC8A0CF82B551CBDB0C15D7A2 /* M13Checkbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "M13Checkbox-dummy.m"; sourceTree = "<group>"; };
@@ -237,7 +241,6 @@
 			children = (
 				919D41C5E1C514A3815060ECD2C0DA16 /* Classes */,
 			);
-			name = IGColorPicker;
 			path = IGColorPicker;
 			sourceTree = "<group>";
 		};
@@ -264,13 +267,14 @@
 		919D41C5E1C514A3815060ECD2C0DA16 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9EA344141F537A380080E337 /* AddView.swift */,
+				9EA344121F53774A0080E337 /* ColorPickerAddCell.swift */,
 				8BD835953F4E0024E44D10ABD497EF94 /* ColorPickerCell.swift */,
 				232AB35C3BE34383398DC2DAF4C9882A /* ColorPickerView.swift */,
 				0DAEBB2F8B6E69A5A7A25C4412C8FCCE /* ColorPickerViewDelegate.swift */,
 				80FA316031A2868448F1BE13E61B3BBB /* ColorPickerViewDelegateFlowLayout.swift */,
 				9143F8FBE65F4EF980FBB00DFD086EC8 /* UIColor+Extension.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -347,7 +351,6 @@
 				AC0F2CC455F0BAB8A2D492EFCCBA4B12 /* M13CheckboxStrokeManager.swift */,
 				1AE883244BAAD4C8BB878370325792A7 /* Support Files */,
 			);
-			name = M13Checkbox;
 			path = M13Checkbox;
 			sourceTree = "<group>";
 		};
@@ -544,9 +547,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EA344131F53774A0080E337 /* ColorPickerAddCell.swift in Sources */,
 				7AD2C5A7D730F060227F1C5D760C649A /* ColorPickerCell.swift in Sources */,
 				2A1342120F3CBD2A8CB8866A9C999E1F /* ColorPickerView.swift in Sources */,
 				EED074491EBB67346CE8FD02D65FFD99 /* ColorPickerViewDelegate.swift in Sources */,
+				9EA344151F537A380080E337 /* AddView.swift in Sources */,
 				93B90373CD057802E97857C6DFDDB08E /* ColorPickerViewDelegateFlowLayout.swift in Sources */,
 				2F7EBE52733E331DDB1EDA63ABA48EE8 /* IGColorPicker-dummy.m in Sources */,
 				A42E33B6963EF47EACAC543BB90DB036 /* UIColor+Extension.swift in Sources */,

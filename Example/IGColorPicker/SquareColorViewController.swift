@@ -27,6 +27,7 @@ class SquareColorPickerViewController: UIViewController, ColorPickerViewDelegate
         colorPickerView.isSelectedColorTappable = false
         colorPickerView.style = .square
         colorPickerView.selectionStyle = .check
+        colorPickerView.showAddButton = true
         colorPickerView.backgroundColor = .clear
     }
     
@@ -39,6 +40,10 @@ class SquareColorPickerViewController: UIViewController, ColorPickerViewDelegate
     
     func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath) {
         self.view.backgroundColor = colorPickerView.colors[indexPath.item]
+    }
+    
+    func colorPickerView(didPressAdd colorPickerView: ColorPickerView) {
+        print("add button pressed!")
     }
     
     

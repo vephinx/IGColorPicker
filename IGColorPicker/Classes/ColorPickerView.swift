@@ -64,6 +64,9 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
             collectionView.selectItem(at: IndexPath(item: indexSelectedColor!, section: 0), animated: false, scrollPosition: .centeredHorizontally)
         }
     }
+    
+    /// If true, add button appended to the end of the color list
+    open var showAddButton: Bool = false
     /// If true, the selected color can be deselected by a tap
     open var isSelectedColorTappable: Bool = true
     /// If true, the preselectedIndex is showed in the center of the color picker
@@ -84,6 +87,7 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ColorPickerCell.self, forCellWithReuseIdentifier: ColorPickerCell.cellIdentifier)
+        collectionView.register(ColorPickerAddCell.self, forCellWithReuseIdentifier: ColorPickerAddCell.cellIdentifier)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.allowsMultipleSelection = false
@@ -112,80 +116,107 @@ open class ColorPickerView: UIView, UICollectionViewDelegate, UICollectionViewDa
     // MARK: - UICollectionViewDataSource
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colors.count
+        if showAddButton {
+            return colors.count + 1 // +1 for the add cell at the end
+        } else {
+            return colors.count
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorPickerCell.cellIdentifier, for: indexPath) as! ColorPickerCell
         
-        cell.backgroundColor = colors[indexPath.item]
-        
-        if style == .circle {
-            cell.layer.cornerRadius = cell.bounds.width / 2
+        if(indexPath.item < colors.count) {
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorPickerCell.cellIdentifier, for: indexPath) as! ColorPickerCell
+            
+            cell.backgroundColor = colors[indexPath.item]
+            
+            if style == .circle {
+                cell.layer.cornerRadius = cell.bounds.width / 2
+            }
+            
+            return cell
+        } else {
+            // last cell is the add button
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorPickerAddCell.cellIdentifier, for: indexPath) as! ColorPickerAddCell
+            
+            cell.backgroundColor = #colorLiteral(red: 0.3803921569, green: 0.3803921569, blue: 0.3803921569, alpha: 1)
+            
+            if style == .circle {
+                cell.layer.cornerRadius = cell.bounds.width / 2
+            }
+            
+            return cell
         }
-        
-        return cell
+
     }
     
     // MARK: - UICollectionViewDelegate
     
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        let colorPickerCell = cell as! ColorPickerCell
-        
-        guard selectionStyle == .check else { return }
-        
-        guard indexPath.item == indexSelectedColor else {
-            colorPickerCell.checkbox.setCheckState(.unchecked, animated: false)
-            return
+        if(indexPath.item < colors.count) {
+            let colorPickerCell = cell as! ColorPickerCell
+            
+            guard selectionStyle == .check else { return }
+            
+            guard indexPath.item == indexSelectedColor else {
+                colorPickerCell.checkbox.setCheckState(.unchecked, animated: false)
+                return
+            }
+            
+            colorPickerCell.checkbox.tintColor = colors[indexPath.item].isWhiteText ? .white : .black
+            colorPickerCell.checkbox.setCheckState(.checked, animated: false)
         }
-        
-        colorPickerCell.checkbox.tintColor = colors[indexPath.item].isWhiteText ? .white : .black
-        colorPickerCell.checkbox.setCheckState(.checked, animated: false)
     }
     
     // TODO: - This method need to be refactored in order to be more readable and expressive
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let colorPickerCell = collectionView.cellForItem(at: indexPath) as! ColorPickerCell
-        
-        if indexPath.item == indexSelectedColor, !isSelectedColorTappable {
-            return
-        }
-        
-        if selectionStyle == .check {
+        if(indexPath.item < colors.count) {
+            let colorPickerCell = collectionView.cellForItem(at: indexPath) as! ColorPickerCell
             
-            if indexPath.item == indexSelectedColor {
-                if isSelectedColorTappable {
-                    indexSelectedColor = nil
-                    colorPickerCell.checkbox.setCheckState(.unchecked, animated: true)
-                }
+            if indexPath.item == indexSelectedColor, !isSelectedColorTappable {
                 return
             }
             
-            indexSelectedColor = indexPath.item
+            if selectionStyle == .check {
+                
+                if indexPath.item == indexSelectedColor {
+                    if isSelectedColorTappable {
+                        indexSelectedColor = nil
+                        colorPickerCell.checkbox.setCheckState(.unchecked, animated: true)
+                    }
+                    return
+                }
+                
+                indexSelectedColor = indexPath.item
+                
+                colorPickerCell.checkbox.tintColor = colors[indexPath.item].isWhiteText ? .white : .black
+                colorPickerCell.checkbox.setCheckState((colorPickerCell.checkbox.checkState == .checked) ? .unchecked : .checked, animated: true)
+                
+            }
             
-            colorPickerCell.checkbox.tintColor = colors[indexPath.item].isWhiteText ? .white : .black
-            colorPickerCell.checkbox.setCheckState((colorPickerCell.checkbox.checkState == .checked) ? .unchecked : .checked, animated: true)
-            
+            delegate?.colorPickerView(self, didSelectItemAt: indexPath)
+        } else {
+            delegate?.colorPickerView?(didPressAdd: self)
         }
-        
-        delegate?.colorPickerView(self, didSelectItemAt: indexPath)
     }
     
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
-        // Check if the old color cell is showed. If true, it deselects it
-        guard let oldColorCell = collectionView.cellForItem(at: indexPath) as? ColorPickerCell else {
-            return
-        }
-        
-        if selectionStyle == .check {
+        if(indexPath.item < colors.count) {
+            // Check if the old color cell is showed. If true, it deselects it
+            guard let oldColorCell = collectionView.cellForItem(at: indexPath) as? ColorPickerCell else {
+                return
+            }
             
-            oldColorCell.checkbox.setCheckState(.unchecked, animated: true)
+            if selectionStyle == .check {
+                
+                oldColorCell.checkbox.setCheckState(.unchecked, animated: true)
+                
+            }
             
+            delegate?.colorPickerView?(self, didDeselectItemAt: indexPath)
         }
-        
-        delegate?.colorPickerView?(self, didDeselectItemAt: indexPath)
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
